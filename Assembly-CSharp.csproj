@@ -53,14 +53,18 @@
     <UnityVersion>2020.3.19f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\CañonPesadoController.cs" />
     <Compile Include="Assets\PlaneController.cs" />
     <Compile Include="Assets\CarController.cs" />
-    <Compile Include="Assets\PropController.cs" />
-    <Compile Include="Assets\PlayerController.cs" />
-    <Compile Include="Assets\CañonPesadoController.cs" />
-    <Compile Include="Assets\CañonLigeroController.cs" />
     <Compile Include="Assets\CajaController.cs" />
+    <Compile Include="Assets\CañonLigeroController.cs" />
+    <Compile Include="Assets\PropController.cs" />
     <Compile Include="Assets\BalaController.cs" />
+    <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\P1Controller.cs" />
+    <Compile Include="Assets\P2Controller.cs" />
+    <Compile Include="Assets\TorreController.cs" />
+    <Compile Include="Assets\CamaraController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

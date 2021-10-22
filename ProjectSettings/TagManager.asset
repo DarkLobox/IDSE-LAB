@@ -6,6 +6,9 @@ TagManager:
   tags:
   - balaLigera
   - balaPesada
+  - bala
+  - jugador1
+  - jugador2
   layers:
   - Default
   - TransparentFX

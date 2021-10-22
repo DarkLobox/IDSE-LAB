@@ -20,12 +20,10 @@ public class CajaController : MonoBehaviour
     {
         if (collision.gameObject.tag == "balaPesada")
         {
-            //Destroy(collision.gameObject);
             vida = vida - 3;
         }
         if (collision.gameObject.tag == "balaLigera")
         {
-            //Destroy(collision.gameObject);
             vida = vida - 1;
         }
         if (vida <= 0)

@@ -40,10 +40,10 @@ public class CarController : MonoBehaviour
         if (upKey)
         {
             transform.position += Vector3.forward * playerSpeed * Time.deltaTime;
-            SM_PolygonCity_Veh_Car_Small_Wheel_fl.Rotate(Vector3.right * 5);
-            SM_PolygonCity_Veh_Car_Small_Wheel_fr.Rotate(Vector3.right * 5);
-            SM_PolygonCity_Veh_Car_Small_Wheel_rl.Rotate(Vector3.right * 5);
-            SM_PolygonCity_Veh_Car_Small_Wheel_rr.Rotate(Vector3.right * 5);
+            SM_PolygonCity_Veh_Car_Small_Wheel_fl.Rotate(Vector3.right * -5);
+            SM_PolygonCity_Veh_Car_Small_Wheel_fr.Rotate(Vector3.right * -5);
+            SM_PolygonCity_Veh_Car_Small_Wheel_rl.Rotate(Vector3.right * -5);
+            SM_PolygonCity_Veh_Car_Small_Wheel_rr.Rotate(Vector3.right * -5);
             upKey = false;
         }
 
