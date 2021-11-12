@@ -9,6 +9,11 @@ TagManager:
   - bala
   - jugador1
   - jugador2
+  - terreno
+  - objectVida
+  - objectInicio
+  - "objectDa\xF1o"
+  - objectMeta
   layers:
   - Default
   - TransparentFX

@@ -1,9 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class P1Controller : MonoBehaviour
 {
+    public Text estado;
+    public Text mensaje;
+    public Text tiempo;
+    private int segundos = 180;
+    private bool win = false;
+    private bool lose = false;
+
     private float playerSpeed = 5f;
     public Rigidbody rgb;
     private float jumpPower = 6.5f;
@@ -13,7 +21,8 @@ public class P1Controller : MonoBehaviour
     private bool left = false;
     private bool right = false;
     private bool shoot = false;
-
+    private int vida = 5;
+ 
     public Transform pistola;
     public GameObject bala;
     private float fuerza = 1200f;
@@ -21,11 +30,19 @@ public class P1Controller : MonoBehaviour
     void Start()
     {
         rgb = GetComponent<Rigidbody>();
+        estado.text = "Vida: " + vida;
+        Invoke("timer", 1f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (segundos<=0 || vida<=0)
+        {
+            lose = true;
+            mensaje.text = "PERDISTE XD";
+        }
+
         if (Input.GetKey(KeyCode.W))
         {
             up = true;
@@ -48,7 +65,7 @@ public class P1Controller : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.X))
         {
-            jump = true;
+            //jump = true;
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -93,7 +110,7 @@ public class P1Controller : MonoBehaviour
 
         if (shoot)
         {
-            disparar();
+            //disparar();
             shoot = false;
         }
     }
@@ -105,4 +122,59 @@ public class P1Controller : MonoBehaviour
         rb.AddRelativeForce(Vector3.up * fuerza);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "objectVida")
+        {
+            vida++;
+            estado.text = "Vida: " + vida;
+        }
+        if (collision.gameObject.tag == "objectDaño")
+        {
+            vida--;
+            estado.text = "Vida: " + vida;
+        }
+        if (collision.gameObject.tag == "objectInicio")
+        {
+            transform.position = new Vector3(0, 0.5f, -17);
+        }
+        if (collision.gameObject.tag == "objectMeta")
+        {
+            win = true;
+            transform.position = new Vector3(0, 0.5f, -17);
+            mensaje.text = "¡GANASTE!";
+        }
+
+        if (collision.gameObject.tag == "balaLigera")
+        {
+            vida = vida - 1;
+        }
+        if (vida <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void timer()
+    {
+        if (segundos > 0 && (!win || !lose) )
+        {
+            segundos--;
+            int m = segundos / 60;
+            int s = segundos % 60;
+            if (m<10 && s<10)
+            {
+                tiempo.text = "0" + m + ":0" + s;
+            }
+            else if (m<10)
+            {
+                tiempo.text = "0" + m + ":" + s;
+            }
+            else if (s<10)
+            {
+                tiempo.text = m + ":0" + s;
+            }
+            Invoke("timer", 1f);
+        }
+    }
 }

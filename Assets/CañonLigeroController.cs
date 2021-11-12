@@ -5,9 +5,9 @@ using UnityEngine;
 public class CañonLigeroController : MonoBehaviour
 {
     public GameObject balaLigera;
-    public float delayInicial = 1f;
-    public float delayEntreObjetos = 1f;
-    private float fuerza = 400f;
+    private float delayInicial = 1f;
+    private float delayEntreObjetos = 1.5f;
+    private float fuerza = 1400f;
     // Start is called before the first frame update
     void Start()
     {
